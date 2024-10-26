@@ -1,0 +1,96 @@
+/* Ensure no margin/padding on the html and body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure all elements respect the box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.chatbot-container {
+  width: 100% !important;
+  height: calc(100vh - 40px) !important; /* Adjust based on the sidebar or padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1e1e1e !important;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  padding: 10px 15px !important;
+  border-radius: 10px !important;
+  max-width: 80% !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.message.user {
+  align-self: flex-end !important;
+  background-color: #4a4a4a !important;
+  color: #e2e2e2 !important;
+}
+
+.message.bot {
+  align-self: flex-start !important;
+  background-color: #3a3a3a !important;
+  color: #c8c8c8 !important;
+}
+
+.chatbot-input-container {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px !important;
+  background-color: #1e1e1e !important;
+  border-top: 1px solid #3e3e3e !important;
+}
+
+.chatbot-input {
+  flex: 1 !important;
+  padding: 12px !important;
+  font-size: 16px !important;
+  color: #ffffff !important;
+  background-color: #3a3a3a !important;
+  border: none !important;
+  border-radius: 5px !important;
+  outline: none !important;
+  margin-right: 10px !important;
+}
+
+.chatbot-send-button {
+  padding: 12px 20px !important;
+  background-color: #007bff !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  transition: background-color 0.3s !important;
+}
+
+.chatbot-send-button:hover {
+  background-color: #0056b3 !important;
+}

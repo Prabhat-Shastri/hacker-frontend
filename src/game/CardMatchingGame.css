@@ -1,0 +1,102 @@
+.card-matching-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4; /* Change background color to blend with the dashboard */
+  padding-top: 20px;
+}
+
+.card-matching-game .game-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.card-matching-game .game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(4, 120px);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card-matching-game .card {
+  background-color: lightblue;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card-matching-game .card:hover {
+  transform: scale(1.05);
+}
+.start-over-container {
+  margin-bottom: 20px; /* Adds space between the button and the game board */
+}
+
+.card-matching-game .start-over-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #2f4f4f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.start-over-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #2f4f4f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-over-button:hover {
+  background-color: #556b2f;
+}
+
+.card {
+  background-color: lightblue;
+  width: 150px !important; /* Slightly increased width */
+  height: 150px !important; /* Slightly increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(12px, 1.5vw, 16px); /* Dynamically adjusts font size */
+  line-height: 1.1; /* Compact line height for multiple lines */
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  text-align: center;
+  padding: 5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  letter-spacing: 0.5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 150px) !important; /* Adjusted to match new card size */
+  grid-template-rows: repeat(4, 150px) !important; /* Adjusted to match new card size */
+  gap: 20px;
+}
+.card-matching-game .start-over-button:hover {
+  background-color: #556b2f;
+}

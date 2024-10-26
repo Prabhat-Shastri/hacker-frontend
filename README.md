@@ -142,7 +142,6 @@ material-dashboard-react
     │   │   ├── Cards
     │   │   ├── Charts
     │   │   ├── Configurator
-    │   │   ├── Footer
     │   │   ├── Items
     │   │   ├── LayoutContainers
     │   │   ├── Lists

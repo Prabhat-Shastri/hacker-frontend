@@ -2,9 +2,9 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import Chatbot from "../../chatbot/Chatbot";
+import CardMatchingGame from "../../game/CardMatchingGame"; // Adjust path if needed
 
-function Dashboard() {
+function Game() {
   return (
     <DashboardLayout>
       <MDBox
@@ -22,12 +22,12 @@ function Dashboard() {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              height="calc(100% - 43px)" /* Slightly reduce height */
+              height="calc(100% - 45px)" /* Slightly reduce height */
               width="100%"
               overflow="hidden"
               style={{ marginBottom: "30px" }} /* Adds a bit of space below */
             >
-              <Chatbot />
+              <CardMatchingGame />
             </MDBox>
           </Grid>
         </Grid>
@@ -36,4 +36,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Game;
