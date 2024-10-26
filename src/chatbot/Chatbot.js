@@ -5,21 +5,32 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
-  // Handle sending a message
+  // Function to handle sending a message
   const sendMessage = async () => {
     if (input.trim()) {
-      // Display the user's message on the chat interface
       const newMessages = [...messages, { sender: "user", text: input }];
       setMessages(newMessages);
 
-      // Simulate a response
-      const response = "This is a test response from the chatbot.";
-      setMessages([...newMessages, { sender: "bot", text: response }]);
+      try {
+        // Make the API request to your FastAPI backend
+        const response = await fetch(
+          `http://localhost:8000/chat?user_query=${encodeURIComponent(input)}`
+        );
+        const data = await response.json();
+
+        // Append the bot's response to the chat
+        setMessages([...newMessages, { sender: "bot", text: data.chatbot_response }]);
+      } catch (error) {
+        console.error("Error fetching the chatbot response:", error);
+        setMessages([...newMessages, { sender: "bot", text: "Error: Could not get a response." }]);
+      }
+
+      // Clear the input field after sending
       setInput("");
     }
   };
 
-  // Handle the "Enter" key to send the message
+  // Handle the "Enter" key press to send the message
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       sendMessage();
