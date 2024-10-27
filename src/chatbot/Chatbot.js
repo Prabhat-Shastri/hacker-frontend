@@ -14,7 +14,7 @@ function Chatbot() {
       try {
         // Make the API request to your FastAPI backend
         const response = await fetch(
-          `http://localhost:8000/chat?user_query=${encodeURIComponent(input)}`
+          `http://localhost:8001/chat?user_query=${encodeURIComponent(input)}`
         );
         const data = await response.json();
 
