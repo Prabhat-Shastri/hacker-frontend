@@ -54,23 +54,31 @@ import Icon from "@mui/material/Icon";
 const routes = [
   {
     type: "collapse",
-    name: "Dashboard",
+    name: "Modules",
+    key: "notifications",
+    icon: <Icon fontSize="small">menu_book</Icon>,
+    route: "/notifications",
+    component: <Notifications />,
+  },
+  {
+    type: "collapse",
+    name: "SafeSpace",
     key: "dashboard",
-    icon: <Icon fontSize="small">dashboard</Icon>,
+    icon: <Icon fontSize="small">chat</Icon>, // Chat icon
     route: "/dashboard",
     component: <Dashboard />,
   },
   {
     type: "collapse",
-    name: "Chat",
+    name: "Counselor Chat",
     key: "chat",
-    icon: <Icon fontSize="small">dashboard</Icon>,
+    icon: <Icon fontSize="small">person</Icon>,
     route: "/websocket",
     component: <WebSocket />,
   },
   {
     type: "collapse",
-    name: "Game",
+    name: "Matching Card Game",
     key: "game",
     icon: <Icon fontSize="small">gamepad</Icon>, // Use an appropriate icon
     route: "/game",
@@ -78,7 +86,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "GamePage",
+    name: "Flappy Bird Game",
     key: "flappy",
     icon: <Icon fontSize="small">gamepad</Icon>,
     route: "/flappy",
@@ -100,14 +108,6 @@ const routes = [
   //   route: "/billing",
   //   component: <Billing />,
   // },
-  {
-    type: "collapse",
-    name: "Notifications",
-    key: "notifications",
-    icon: <Icon fontSize="small">notifications</Icon>,
-    route: "/notifications",
-    component: <Notifications />,
-  },
   // {
   //   type: "collapse",
   //   name: "Profile",

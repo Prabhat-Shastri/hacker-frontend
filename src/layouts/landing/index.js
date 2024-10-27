@@ -163,7 +163,7 @@ const LandingPage = () => {
             </FeatureCard>
           </Grid>
         </FeaturesGrid>
-        <CallToAction variant="contained" component={Link} to="/get-started">
+        <CallToAction variant="contained" component={Link} to="/notifications">
           Get Started
         </CallToAction>
       </Content>

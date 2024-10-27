@@ -149,10 +149,10 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
-        {/* Redirect root path to /authentication/sign-in */}
+        {/* Default root path redirect to /authentication/sign-in */}
         <Route path="/" element={<Navigate to="/authentication/sign-in" replace />} />
 
-        {/* Render all routes */}
+        {/* Render all defined routes */}
         {getRoutes(routes)}
 
         {/* Fallback route */}
