@@ -17,7 +17,7 @@ function CardMatchingGame() {
     { id: 10, content: "Blisters, Painful Sores", type: "symptom" },
     { id: 11, content: "HPV", type: "disease" },
     { id: 12, content: "Warts, Genital Itching", type: "symptom" },
-    { id: 13, content: "Tricho\nmoniasis", type: "disease" },
+    { id: 13, content: "Trichomoniasis", type: "disease" },
     { id: 14, content: "Itching, Discharge", type: "symptom" },
     { id: 15, content: "Hepatitis B", type: "disease" },
     { id: 16, content: "Nausea, Vomiting, Fatigue", type: "symptom" },
@@ -99,7 +99,7 @@ function CardMatchingGame() {
 
   return (
     <div className="card-matching-game">
-      <h1 className="game-heading">Match STDs (🐶) to their symptoms (🦴)</h1>
+      <h1 className="game-heading">Match diseases (🐶) to the symptoms (🦴)</h1>
       <div className="game-board" ref={gameBoardRef}>
         {cards.map((card) => (
           <Card
@@ -126,7 +126,11 @@ function Card({ card, isFlipped, isMatched, onClick }) {
       className={`card ${isMatched ? "matched" : ""}`} // Add "matched" class if cards are matched
       onClick={onClick}
     >
-      {isFlipped ? card.content : card.type === "disease" ? "🐶" : "🦴"}
+      {isFlipped ? (
+        <span className="back-text">{card.content}</span> // Use a different class for back content
+      ) : (
+        <span className="front-emoji">{card.type === "disease" ? "🐶" : "🦴"}</span>
+      )}
     </div>
   );
 }

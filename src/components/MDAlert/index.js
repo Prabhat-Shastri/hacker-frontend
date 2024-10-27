@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Material Dashboard 2 React - v2.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState } from "react";
 
 // prop-types is a library for typechecking of props
@@ -28,10 +13,25 @@ import MDBox from "components/MDBox";
 import MDAlertRoot from "components/MDAlert/MDAlertRoot";
 import MDAlertCloseIcon from "components/MDAlert/MDAlertCloseIcon";
 
-function MDAlert({ color, dismissible, children, ...rest }) {
+// Color map for each module
+const moduleColorMap = {
+  "Understanding your Anatomy": "primary",
+  "Consent and Boundaries": "secondary",
+  "Pregnancy and Contraceptives": "success",
+  STDs: "error",
+  "Reprodutive Health & Fertiliy": "warning",
+  "Sexual Orientation and Gender Identities": "info",
+  "Staying safe IRL & Online": "light",
+  "Navigating Peer Pressure": "dark",
+};
+
+function MDAlert({ moduleName, dismissible, children, ...rest }) {
   const [alertStatus, setAlertStatus] = useState("mount");
 
   const handleAlertStatus = () => setAlertStatus("fadeOut");
+
+  // Get color for the module name
+  const color = moduleColorMap[moduleName] || "info"; // Fallback to "info" if no match
 
   // The base template for the alert
   const alertTemplate = (mount = true) => (
@@ -63,22 +63,21 @@ function MDAlert({ color, dismissible, children, ...rest }) {
 
 // Setting default values for the props of MDAlert
 MDAlert.defaultProps = {
-  color: "info",
   dismissible: false,
 };
 
 // Typechecking props of the MDAlert
 MDAlert.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-    "light",
-    "dark",
-  ]),
+  moduleName: PropTypes.oneOf([
+    "Understanding your Anatomy",
+    "Consent and Boundaries",
+    "Pregnancy and Contraceptives",
+    "STDs",
+    "Reprodutive Health & Fertiliy",
+    "Sexual Orientation and Gender Identities",
+    "Staying safe IRL & Online",
+    "Navigating Peer Pressure",
+  ]).isRequired, // moduleName is now required
   dismissible: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
