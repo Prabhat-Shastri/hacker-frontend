@@ -10,8 +10,10 @@ function WebSocketChat() {
 
   // Establish WebSocket connection when component mounts
   useEffect(() => {
-    const client_id = window.prompt("Enter your ID (1234 for counselor):");
-    const role = client_id === "1234" ? "Counselor" : "Student";
+    // Retrieve role and clientId from localStorage
+    const client_id = localStorage.getItem("clientId");
+    const role = localStorage.getItem("role");
+
     roleRef.current = role; // Store the role
     clientIdRef.current = client_id; // Store the client ID
 
