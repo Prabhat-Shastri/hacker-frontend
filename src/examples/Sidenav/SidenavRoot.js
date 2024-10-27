@@ -11,7 +11,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
   const { pxToRem } = functions;
 
   // Hardcoded light blue color (#ADD8E6)
-  const backgroundValue = "#F8EDDD";
+  const backgroundValue = "#FFFFFF";
 
   // styles for the sidenav when miniSidenav={false}
   const drawerOpenStyles = () => ({
