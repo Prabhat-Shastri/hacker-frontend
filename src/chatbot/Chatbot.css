@@ -75,3 +75,34 @@
 .chatbot-send-button:hover {
   background-color: #183045;
 }
+
+/* Welcome message animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-message {
+  animation: fadeIn 1s ease-in;
+}
+
+.welcome-message.hide {
+  animation: fadeOut 1s ease-out forwards;
+}
