@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Chatbot.css";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+
+  // Reference to the messages container
+  const messagesEndRef = useRef(null);
 
   // Function to handle sending a message
   const sendMessage = async () => {
@@ -19,10 +22,16 @@ function Chatbot() {
         const data = await response.json();
 
         // Append the bot's response to the chat
-        setMessages([...newMessages, { sender: "bot", text: data.chatbot_response }]);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: data.chatbot_response },
+        ]);
       } catch (error) {
         console.error("Error fetching the chatbot response:", error);
-        setMessages([...newMessages, { sender: "bot", text: "Error: Could not get a response." }]);
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "bot", text: "Error: Could not get a response." },
+        ]);
       }
 
       // Clear the input field after sending
@@ -37,6 +46,11 @@ function Chatbot() {
     }
   };
 
+  // Auto-scroll to the bottom of the messages when a new message is added
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className="chatbot-container">
       <div className="chatbot-messages">
@@ -45,6 +59,8 @@ function Chatbot() {
             {msg.text}
           </div>
         ))}
+        {/* This empty div will always be at the bottom to scroll into view */}
+        <div ref={messagesEndRef} />
       </div>
       <div className="chatbot-input-container">
         <input
