@@ -99,31 +99,38 @@ function CardMatchingGame() {
 
   return (
     <div className="card-matching-game">
-      <div className="start-over-container">
-        <button className="start-over-button" onClick={resetGame}>
-          Start Over
-        </button>
-      </div>
+      <h1 className="game-heading">Match diseases (🐶) to the symptoms (🦴)</h1>
       <div className="game-board" ref={gameBoardRef}>
-        {" "}
-        {/* Attach ref here */}
         {cards.map((card) => (
           <Card
             key={card.id}
             card={card}
             isFlipped={flippedCards.includes(card.id) || matchedPairs.includes(card.id)}
+            isMatched={matchedPairs.includes(card.id)} // Check if card is matched
             onClick={() => handleCardClick(card.id)}
           />
         ))}
+      </div>
+      <div className="start-over-container">
+        <button className="start-over-button" onClick={resetGame}>
+          Start Over
+        </button>
       </div>
     </div>
   );
 }
 
-function Card({ card, isFlipped, onClick }) {
+function Card({ card, isFlipped, isMatched, onClick }) {
   return (
-    <div className="card" onClick={onClick}>
-      {isFlipped ? card.content : "❓"}
+    <div
+      className={`card ${isMatched ? "matched" : ""}`} // Add "matched" class if cards are matched
+      onClick={onClick}
+    >
+      {isFlipped ? (
+        <span className="back-text">{card.content}</span> // Use a different class for back content
+      ) : (
+        <span className="front-emoji">{card.type === "disease" ? "🐶" : "🦴"}</span>
+      )}
     </div>
   );
 }
@@ -136,6 +143,7 @@ Card.propTypes = {
     type: PropTypes.string.isRequired,
   }).isRequired,
   isFlipped: PropTypes.bool.isRequired,
+  isMatched: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

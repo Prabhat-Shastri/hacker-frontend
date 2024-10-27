@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 import CardMatchingGame from "../../game/CardMatchingGame"; // Adjust path if needed
-import kid from "assets/images/bluegradient.jpg.png"; // Importing the local image
+//import kid from "assets/images/bluegradient.jpg.png"; // Importing the local image
 
 function Game() {
   return (
@@ -15,7 +15,7 @@ function Game() {
       m={0}
       overflow="hidden"
       style={{
-        backgroundImage: `url(${kid})`, // Using the imported image
+        //backgroundImage: `url(${kid})`, // Using the imported image
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

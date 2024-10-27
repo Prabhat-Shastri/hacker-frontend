@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
-import Switch from "@mui/material/Switch";
-import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
 import MDInput from "components/MDInput";
@@ -14,15 +11,26 @@ import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const hardcodedEmail = "test@example.com";
-  const hardcodedPassword = "password123";
   const navigate = useNavigate();
+
+  // Hardcoded emails and passwords for counselor and student
+  const counselorEmail = "counselor@example.com";
+  const studentEmail = "student@example.com";
+  const hardcodedPassword = "password123";
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    if (email === hardcodedEmail && password === hardcodedPassword) {
-      alert("Authentication successful!");
-      navigate("/dashboard"); // Redirect to dashboard or any protected route
+
+    if (email === counselorEmail && password === hardcodedPassword) {
+      alert("Counselor authentication successful!");
+      localStorage.setItem("role", "Counselor");
+      localStorage.setItem("clientId", "1234"); // Store counselor ID
+      navigate("/templand"); // Redirect to templand chat
+    } else if (email === studentEmail && password === hardcodedPassword) {
+      alert("Student authentication successful!");
+      localStorage.setItem("role", "Student");
+      localStorage.setItem("clientId", "5678"); // Store student ID (use any value except 1234)
+      navigate("/templand"); // Redirect to templand chat
     } else {
       alert("Invalid email or password. Please try again.");
     }
@@ -70,21 +78,6 @@ function Login() {
               <MDButton type="submit" variant="gradient" color="info" fullWidth>
                 Sign in
               </MDButton>
-            </MDBox>
-            <MDBox mt={3} mb={1} textAlign="center">
-              <MDTypography variant="button" color="text">
-                Don&apos;t have an account?{" "}
-                <MDTypography
-                  component={Link}
-                  to="/authentication/sign-up"
-                  variant="button"
-                  color="info"
-                  fontWeight="medium"
-                  textGradient
-                >
-                  Sign up
-                </MDTypography>
-              </MDTypography>
             </MDBox>
           </MDBox>
         </MDBox>

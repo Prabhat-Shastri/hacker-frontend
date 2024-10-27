@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import MDBox from "components/MDBox";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import WebSocketChat from "../../websocket"; // Import WebSocketChat component
 
 function WebSocketPage() {
+  const [showStartMessage, setShowStartMessage] = useState(true);
+
+  // Hide the start message after 5 seconds
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setShowStartMessage(false);
+    }, 5000); // 5000 ms = 5 seconds
+
+    // Cleanup the timeout on component unmount
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <DashboardLayout>
       <MDBox
@@ -27,6 +39,26 @@ function WebSocketPage() {
               overflow="hidden"
               style={{ marginBottom: "30px" }} /* Adds a bit of space below */
             >
+              {/* Conditionally render the start message */}
+              {showStartMessage && (
+                <MDBox
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  style={{
+                    position: "absolute",
+                    top: "20px",
+                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    color: "white",
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                    fontSize: "18px",
+                  }}
+                >
+                  Your chat has started
+                </MDBox>
+              )}
+              {/* WebSocketChat Component */}
               <WebSocketChat /> {/* Use WebSocketChat component */}
             </MDBox>
           </Grid>
