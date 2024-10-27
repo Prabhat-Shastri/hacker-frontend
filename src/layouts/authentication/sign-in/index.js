@@ -25,12 +25,12 @@ function Login() {
       alert("Counselor authentication successful!");
       localStorage.setItem("role", "Counselor");
       localStorage.setItem("clientId", "1234"); // Store counselor ID
-      navigate("/websocket"); // Redirect to WebSocket chat
+      navigate("/templand"); // Redirect to templand chat
     } else if (email === studentEmail && password === hardcodedPassword) {
       alert("Student authentication successful!");
       localStorage.setItem("role", "Student");
       localStorage.setItem("clientId", "5678"); // Store student ID (use any value except 1234)
-      navigate("/websocket"); // Redirect to WebSocket chat
+      navigate("/templand"); // Redirect to templand chat
     } else {
       alert("Invalid email or password. Please try again.");
     }

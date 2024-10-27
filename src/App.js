@@ -75,7 +75,7 @@ export default function App() {
     const symbolsData = Array.from({ length: symbolCount }, () => ({
       symbol: getRandomSymbol(),
       ...getRandomPosition(width, height),
-      speed: Math.random() * 2 + 1,
+      speed: Math.random() * 1,
       direction: Math.random() < 0.5 ? 1 : -1,
     }));
 
@@ -149,7 +149,13 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Routes>
+        {/* Redirect root path to /authentication/sign-in */}
+        <Route path="/" element={<Navigate to="/authentication/sign-in" replace />} />
+
+        {/* Render all routes */}
         {getRoutes(routes)}
+
+        {/* Fallback route */}
         <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
       <canvas

@@ -28,11 +28,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px; /* Larger font size for emoji */
+  font-size: 15px; /* Default font size */
   color: black;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
+  padding: 30%;
 }
 
 .card.matched {
@@ -42,6 +43,14 @@
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.front-emoji {
+  font-size: 50px; /* Larger font size for the front emoji */
+}
+
+.back-text {
+  font-size: 20px; /* Smaller font size for the back text */
 }
 
 .start-over-container {
@@ -54,7 +63,7 @@
 .start-over-button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #2f4f4f;
+  background-color: #0831cf;
   color: white;
   border: none;
   border-radius: 10px;
@@ -63,5 +72,5 @@
 }
 
 .start-over-button:hover {
-  background-color: #556b2f;
+  background-color: #72bf6a;
 }
