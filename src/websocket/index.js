@@ -21,11 +21,15 @@ function WebSocketChat() {
     // Handle incoming WebSocket messages
     webSocket.onmessage = (event) => {
       const message = event.data;
-      const sender = message.includes("You wrote:") ? "user" : "bot";
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { sender: sender, text: message, clientId: client_id },
-      ]);
+
+      // Ignore messages that start with "You wrote:", since we already know what the user wrote
+      if (!message.includes("You wrote:")) {
+        const sender = message.includes("Counselor says:") ? "Counselor" : "Student";
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: sender, text: message, clientId: clientIdRef.current },
+        ]);
+      }
     };
 
     // Cleanup WebSocket connection on unmount
@@ -37,7 +41,10 @@ function WebSocketChat() {
   // Function to send message
   const sendMessage = () => {
     if (input.trim() && ws) {
-      setMessages([...messages, { sender: "user", text: input, clientId: clientIdRef.current }]);
+      setMessages([
+        ...messages,
+        { sender: roleRef.current, text: input, clientId: clientIdRef.current },
+      ]);
       ws.send(input); // Send message to WebSocket
       setInput(""); // Clear input
     }
@@ -55,8 +62,11 @@ function WebSocketChat() {
       <h1>Role: {roleRef.current}</h1>
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender === "user" ? "sent" : "received"}`}>
-            {msg.text.replace(/You wrote: |Counselor says: /gi, "")}{" "}
+          <div
+            key={index}
+            className={`message ${msg.sender === roleRef.current ? "sent" : "received"}`}
+          >
+            {msg.text.replace(/You wrote: |Counselor says: |Student says: /gi, "")}
           </div>
         ))}
       </div>
