@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <MDBox
-        height="100vh"
+        // height="100vh"
         display="flex"
         alignItems="stretch"
         justifyContent="center"
@@ -20,20 +20,18 @@ function Dashboard() {
         m={0}
         overflow="hidden"
         style={{
-          //backgroundImage: `url(${backgroundImage})`, // Add background image
-          backgroundSize: "cover", // Ensure image covers the entire area
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat", // Prevent image from repeating
+          // backgroundImage: `url(${backgroundImage})`, // Uncomment if needed
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <Grid container spacing={0} style={{ height: "100%", overflow: "hidden" }}>
           <Grid item xs={12} style={{ height: "100%" }}>
             <MDBox
               display="flex"
-              alignItems="center"
-              justifyContent="center"
-              height="calc(100% - 43px)" /* Slightly reduce height */
-              width="100%"
+              flexDirection="column" // Ensure column direction for flex
+              height="100%"
               overflow="hidden"
               style={{
                 marginBottom: "30px",
