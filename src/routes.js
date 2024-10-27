@@ -45,6 +45,7 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import Game from "layouts/games";
 import WebSocket from "layouts/websocket";
+import GamePage from "layouts/flappygame";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -121,6 +122,14 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
+  },
+  {
+    type: "collapse",
+    name: "GamePage",
+    key: "flappy",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/flappy",
+    component: <GamePage />,
   },
 ];
 
