@@ -1,0 +1,10 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore SQLite database (if you're using SQLite)
+*.db
+
+# Ignore the .env file (since you're passing it at runtime)
+.env
+

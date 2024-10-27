@@ -3,14 +3,6 @@
 * Material Dashboard 2 React - v2.2.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
 import { useEffect } from "react";
@@ -53,7 +45,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const location = useLocation();
   const collapseName = location.pathname.replace("/", "");
 
-  let textColor = "white";
+  let textColor = "black";
 
   if (transparentSidenav || (whiteSidenav && !darkMode)) {
     textColor = "dark";
@@ -64,19 +56,19 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const closeSidenav = () => setMiniSidenav(dispatch, true);
 
   useEffect(() => {
-    // A function that sets the mini state of the sidenav.
+    // A function that keeps the sidenav permanently expanded
     function handleMiniSidenav() {
-      setMiniSidenav(dispatch, window.innerWidth < 1200);
-      setTransparentSidenav(dispatch, window.innerWidth < 1200 ? false : transparentSidenav);
-      setWhiteSidenav(dispatch, window.innerWidth < 1200 ? false : whiteSidenav);
+      setMiniSidenav(dispatch, false); // Always keep sidebar expanded
+      setTransparentSidenav(dispatch, transparentSidenav); // Adjust transparency as needed
+      setWhiteSidenav(dispatch, whiteSidenav); // Adjust white sidenav as needed
     }
 
     /** 
-     The event listener that's calling the handleMiniSidenav function when resizing the window.
+     The event listener calling handleMiniSidenav when resizing the window.
     */
     window.addEventListener("resize", handleMiniSidenav);
 
-    // Call the handleMiniSidenav function to set the state with the initial value.
+    // Initial state of the sidenav is set to expanded
     handleMiniSidenav();
 
     // Remove event listener on cleanup
