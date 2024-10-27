@@ -45,6 +45,7 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import Game from "layouts/games";
 import WebSocket from "layouts/websocket";
+import GamePage from "layouts/flappygame";
 import LandingPage from "layouts/landing";
 
 // @mui icons
@@ -125,6 +126,13 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "GamePage",
+    key: "flappy",
+    icon: <Icon fontSize="small">dashboard</Icon>,
+    route: "/flappy",
+    component: <GamePage />,
+  },
+  {
     name: "templand",
     key: "templand",
     icon: <Icon fontSize="small">gamepad</Icon>, // Use an appropriate icon
