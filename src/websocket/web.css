@@ -1,0 +1,27 @@
+.chatbot-messages {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  max-height: 500px !important;
+  overflow-y: auto !important;
+  padding: 10px !important;
+}
+
+.message {
+  padding: 10px 15px !important;
+  border-radius: 15px !important;
+  max-width: 70% !important;
+  word-wrap: break-word !important;
+}
+
+.sent {
+  background-color: #0084ff !important;
+  color: white !important;
+  align-self: flex-end !important; /* Align to the right for sent messages */
+}
+
+.received {
+  background-color: #f1f0f0 !important;
+  color: black !important;
+  align-self: flex-start !important; /* Align to the left for received messages */
+}
