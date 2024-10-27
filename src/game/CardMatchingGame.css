@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f4f4f4; /* Change background color to blend with the dashboard */
+  background-color: transparent; /* Transparent background */
   padding-top: 20px;
 }
 
@@ -14,20 +14,21 @@
 
 .card-matching-game .game-board {
   display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-template-rows: repeat(4, 120px);
+  grid-template-columns: repeat(4, 130px); /* Slightly larger tile size */
+  grid-template-rows: repeat(4, 130px); /* Slightly larger tile size */
   gap: 20px;
   margin-top: 20px;
+  margin-left: 150px; /* Move the board further to the right */
 }
 
 .card-matching-game .card {
-  background-color: lightblue;
-  width: 120px;
-  height: 120px;
+  background-color: white; /* Tile color changed to white */
+  width: 130px; /* Slightly larger width */
+  height: 130px; /* Slightly larger height */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px; /* Increased font size slightly */
   color: black;
   border-radius: 10px;
   cursor: pointer;
@@ -37,21 +38,15 @@
 .card-matching-game .card:hover {
   transform: scale(1.05);
 }
+
 .start-over-container {
-  margin-bottom: 20px; /* Adds space between the button and the game board */
+  margin-top: 20px; /* Adds space between the game board and the start button */
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Ensure button is centered */
 }
 
 .card-matching-game .start-over-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #2f4f4f;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.start-over-button {
   padding: 10px 20px;
   font-size: 18px;
   background-color: #2f4f4f;
@@ -67,13 +62,13 @@
 }
 
 .card {
-  background-color: lightblue;
-  width: 150px !important; /* Slightly increased width */
-  height: 150px !important; /* Slightly increased height */
+  background-color: white; /* Tile color changed to white */
+  width: 130px !important; /* Slightly increased width */
+  height: 130px !important; /* Slightly increased height */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: clamp(12px, 1.5vw, 16px); /* Dynamically adjusts font size */
+  font-size: clamp(12px, 1.5vw, 20px); /* Dynamically adjusts font size */
   line-height: 1.1; /* Compact line height for multiple lines */
   color: black;
   border-radius: 10px;
@@ -93,10 +88,8 @@
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(4, 150px) !important; /* Adjusted to match new card size */
-  grid-template-rows: repeat(4, 150px) !important; /* Adjusted to match new card size */
+  grid-template-columns: repeat(4, 130px) !important; /* Adjusted to match new card size */
+  grid-template-rows: repeat(4, 130px) !important; /* Adjusted to match new card size */
   gap: 20px;
-}
-.card-matching-game .start-over-button:hover {
-  background-color: #556b2f;
+  margin-left: 150px; /* Moved further to the right */
 }
