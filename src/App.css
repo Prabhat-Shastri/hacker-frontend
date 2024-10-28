@@ -1,0 +1,98 @@
+/* App.css */
+
+/* Ensure the body takes up the full viewport height */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./assets/images/bluegradient.jpg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  display: flex; /* Ensure it takes up the entire height */
+  flex-direction: column;
+}
+
+/* Chatbot container takes up full height */
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure messages are at the top, and input stays at the bottom */
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background-color: transparent;
+  position: relative;
+}
+
+/* Messages take available space and allow scrolling */
+.chatbot-messages {
+  flex: 1; /* Take available vertical space */
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: transparent;
+}
+
+/* Input container remains fixed at the bottom */
+.chatbot-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: white;
+  border-top: 1px solid transparent;
+  height: 60px;
+}
+
+/* Input field styling */
+.chatbot-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  color: black;
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  margin-right: 10px;
+}
+
+/* Send button styling */
+.chatbot-send-button {
+  padding: 12px 20px;
+  background-color: #581bb4;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.chatbot-send-button:hover {
+  background-color: #183045;
+}
+
+/* Message bubbles */
+.message {
+  padding: 10px 15px;
+  border-radius: 30px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  align-self: flex-end;
+  background-color: #581bb4;
+  color: #e2e2e2;
+}
+
+.message.bot {
+  margin-left: 40px;
+  align-self: flex-start;
+  background-color: #0931cf;
+  color: #c8c8c8;
+}
